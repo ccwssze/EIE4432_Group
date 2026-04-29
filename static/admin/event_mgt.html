@@ -1,0 +1,241 @@
+<!--Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Train Ticket Selling System</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="../scripts/jquery-3.7.1.min.js"></script>
+        <script src="../scripts/login_state.js"></script>
+        <script src="../scripts/dashboard.js"></script>
+        <script src="../scripts/event_mgt.js"></script>
+         <script src="../scripts/all_transaction.js"></script>
+
+    </head>
+    <body>
+        <header class="text-bg-dark text-center p-4 fs-3 fw-bold">Train Ticket Selling System</header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-secondary" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-secondary" href="../booking.html">Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-secondary" href="../dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-secondary" href="../trans_hist.html">Transaction History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/user_account_mgt.html" id="admin_link1">User Account Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/seat_mgt.html" id="admin_link2">Seat Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold py-2 px-lg-3 text-danger d-none" aria-current="page" href="../admin/event_mgt.html" id="admin_link3">Event Management</a>  
+                        </li>
+                    </ul>
+                    <button class="btn" onclick="window.location.href='../account/account_mgt.html';">
+                        <img src="../assets/profile-pic.jpg" class="rounded-circle" alt="Profile" width="40" height="40" id="profile-pic">
+                    </button>
+                    <button class="btn btn btn-secondary px-3 d-none" onclick="logout();window.location.href='../index.html';" id="logged_in2">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!--Dashboard-->
+        <div class="m-4">
+            <h3 class="fw-bold btn btn-dark">Current Events</h3>
+            <input
+        type="search"
+        id="username-search"
+        name="username-search"
+        list="suggestions"
+        style="width: 400px"
+        onclick="suggestion()" />
+      <button type="button" class="btn btn-warning btn-sm fw-bold" onclick="dashboard_filter()">Search</button>
+      <div id="suggestion"></div>
+            <div style="height:300px;overflow:auto;">
+            <table id="event-table" class="table table-bordered table-striped table-hover">
+                <thead class="text-center">
+                    <th>#</th>
+                    <th id="tcode_col">
+                        Train Code
+                    </th>
+                    <th id="date_col">
+                        Date
+                    </th>
+                    <th id="dtime_col">
+                        Departure Time
+                    </th>
+                    <th id="atime_col">
+                        Arrival Time
+                    </th>
+                    <th id="dstation_col">
+                        Departure Station
+                    </th>
+                    <th id="astation_col">
+                        Arrival Station
+                    </th>
+                    <th id="ticket_col">
+                        Avaliable tickets
+                    </th>
+                </thead>
+                <tbody class="text-center" id="table_body">
+                    
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        <!--Transaction History-->
+        <div class="m-4">
+            <h3 class="fw-bold btn btn-dark">All Transaction History</h3>
+            <div style="height:300px;overflow:auto;">
+            <table id="event-table" class="table table-bordered table-striped table-hover">
+                <thead class="text-center">
+                    <th>#</th>
+
+                    <th id="trans_date_col">
+                        Transaction Date
+                    </th>
+                    <th id="trans_time_col">
+                        Transaction Time
+                    </th>
+                    <th id="user_col">
+                        User
+                    </th>
+                    <th id="event_col">
+                        Event
+                    </th>
+                    <th id="seats_col">
+                        No. Seats Bought
+                    </th>
+                    <th id="tprice_col">
+                        Total Price
+                    </th>
+                </thead>
+                <tbody class="text-center" id="table_body2">
+                    
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!--Create/Modify-->
+        <div class="container py-4">
+            <form method="POST" >
+                <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div style="display: grid;grid-template-columns: auto auto auto;padding: 10px;">
+                        <div class="mx-3 fw-bold fs-5">Create</div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" style="width:50px;height:20px" type="checkbox" id="cm_switch" onchange="cm_switched()">
+                        </div>
+                        <div class="mx-3 fw-bold fs-5">Modify</div>
+                    </div>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="file" id="iconupload" name="iconupload" class="form-control" accept=".png" onchange="changeimage()"/>
+                    <div class="profile-pic-wrapper text-center">
+                        <img src="../assets/event-pic.jpg" style="object-position: center" class="" alt="Profile Picture" width="200" height="200" id="train-pic">
+                    </div> 
+                </div>
+                <div class="form-outline mb-4">
+                    <label for="code" class="mb-1">Train Code:</label>
+                    <input type="text" id="code" class="form-control"/>
+                </div>
+                <div class="form-outline mb-4">
+                    <label for="date" class="mb-1">Date:</label>
+                    <input type="date" id="date" class="form-control"/>
+                </div>
+                <div class="form-outline mb-4">
+                    <label for="depatureTime" class="mb-1">Depature time:</label>
+                    <input type="time" id="depatureTime" class="form-control"/>
+                </div>
+                <div class="form-outline mb-4">
+                    <label for="arrivalTime" class="mb-1">Arrival time:</label>
+                    <input type="time" id="arrivalTime" class="form-control"/>
+                </div>
+                <div class="form-outline mb-4">
+                    <label for="departure" class="mb-1">Departure Station:</label>
+                    <input type="text" id="departure" class="form-control"/>
+                </div>
+                 <div class="form-outline mb-4">
+                    <label for="arrival" class="mb-1">Arrival Station:</label>
+                    <input type="text" id="arrival" class="form-control"/>
+                 </div>
+                 <div class="form-outline mb-4">
+                    <label for="cart" class="mb-1">Cart:</label>
+                    <input type="text" id="cart" class="form-control"/>
+                    <label for="rowPcart" class="mb-1">Row Per Cart:</label>
+                    <input type="text" id="rowPcart" class="form-control"/>
+                    <label for="seatProw" class="mb-1">Seat Per Row:</label>
+                    <input type="text" id="seatProw" class="form-control"/>
+                 </div>
+                <div>
+                    <button type="button" class="btn btn-primary" onclick="create_event()">Create</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Reschedule/Cancel-->
+    <div class="container py-4">
+        <form method="POST" id="form">
+            <div class="mx-3 fw-bold fs-5 text-center">Event Rescheduling/Cancelling</div>        
+            <div class="form-outline mb-4">
+                <label for="train_event" class="mb-1">
+                    Event:&emsp;&emsp;&emsp;Filters
+                    <select name="filterList" id="filterList" onchange="pick_filter()">
+                        <option value=""></option>
+                        <option value="tcode">Train Code</option>
+                        <option value="date">Date</option>
+                        <option value="dtime">Departure time</option>
+                        <option value="atime">Arrival time</option>
+                        <option value="dstation">Departure Station</option>
+                        <option value="astation">Arrival Station</option>
+                    </select>
+                    <select name="listitem" id="listitem" onchange="pick_item()">
+                        
+                    </select>
+                </label>
+                <select id="train_event" name="train_event" class="form-select mb-4">
+
+                </select>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="new_date" class="mb-1">Reschedule Date:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;(Leave blank if cancelling)</label>
+                <input type="date" id="new_date" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="new_dtime" class="mb-1">Reshcedule Depature time:&emsp;&emsp;(Leave blank if cancelling)</label>
+                <input type="time" id="new_dtime" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="new_atime" class="mb-1">Reshcedule Arrival time:&emsp;&emsp;&emsp;&nbsp;(Leave blank if cancelling)</label>
+                <input type="time" id="new_atime" class="form-control"/>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" onclick="reschedule()">Reschedule</button>
+                <button type="button" class="btn btn-primary" onclick="cancel()">Cancel</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    </body>
+</html>

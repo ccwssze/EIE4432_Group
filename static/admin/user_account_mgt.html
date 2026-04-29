@@ -1,0 +1,119 @@
+<!--Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Train Ticket Selling System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/login_state.js"></script>
+    <script src="../scripts/user_account_mgt.js"></script>
+  </head>
+  <body>
+    <header class="text-bg-dark text-center p-4 fs-3 fw-bold">Train Ticket Selling System</header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../trans_hist.html">Transaction History</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active fw-bold py-2 px-lg-3 text-danger d-none"
+                aria-current="page"
+                href="../admin/user_account_mgt.html"
+                id="admin_link1"
+                >User Account Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/seat_mgt.html" id="admin_link2"
+                >Seat Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/event_mgt.html" id="admin_link3"
+                >Event Management</a
+              >
+            </li>
+          </ul>
+          <button class="btn" onclick="window.location.href='../account/account_mgt.html';">
+            <img
+              src="../assets/profile-pic.jpg"
+              class="rounded-circle"
+              alt="Profile"
+              width="40"
+              height="40"
+              id="profile-pic" />
+          </button>
+          <button
+            class="btn btn btn-secondary px-3"
+            onclick="logout();window.location.href='../index.html';"
+            id="logged_in2">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto my-4 p-3">
+      <h5 class="fw-bold mb-4 btn btn-dark">User Activities and Information</h5>
+      <br />
+      <div
+        class="p-2 mx-2 border border-dark"
+        id="user-log"
+        style="width: 600px; height: 300px; display: block; overflow: auto"></div>
+      <div class="p-2 mx-2" id="user-info" style="width: 500px; height: 300px; display: inline-flex">
+        <table id="event-table" class="table table-bordered"></table>
+      </div>
+    </div>
+
+    <div class="container mx-auto my-4 d-none" id="user_searcher">
+      <h3 class="fw-bold btn btn-dark">Users</h3>
+      <form action="" class="my-3">
+        <label for="username-search">Search Username: </label>
+        <input type="search" id="username-search" name="username-search" style="width: 400px" />
+        <button type="button" class="btn btn-warning btn-sm fw-bold" onclick="user_filter()">Search</button>
+      </form>
+      <div style="height: 400px; overflow: auto">
+        <table id="event-table2" class="table table-bordered table-striped table-hover">
+          <thead class="text-center">
+            <th id="username">Username</th>
+            <th id="created">Email</th>
+          </thead>
+          <tbody class="text-center" id="table_body"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

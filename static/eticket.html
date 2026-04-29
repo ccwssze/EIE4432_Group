@@ -1,0 +1,111 @@
+<!--Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Train Ticket Selling System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/login_state.js"></script>
+    <script src="../scripts/eticket.js"></script>
+  </head>
+  <body>
+    <header class="text-bg-dark text-center p-4 fs-3 fw-bold">Train Ticket Selling System</header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../trans_hist.html">Transaction History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/user_account_mgt.html" id="admin_link1"
+                >User Account Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/seat_mgt.html" id="admin_link2"
+                >Seat Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/event_mgt.html" id="admin_link3"
+                >Event Management</a
+              >
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary px-3 mx-2 d-none"
+            onclick="window.location.href='../account/login.html';"
+            id="logged_out1">
+            Login
+          </button>
+          <button
+            class="btn btn-outline-secondary px-3 d-none"
+            onclick="window.location.href='../account/registration.html';"
+            id="logged_out2">
+            Registration
+          </button>
+          <button class="btn d-none" onclick="window.location.href='../account/account_mgt.html';" id="logged_in1">
+            <img
+              src="../assets/profile-pic.jpg"
+              class="rounded-circle"
+              alt="Profile"
+              width="40"
+              height="40"
+              id="profile-pic" />
+          </button>
+          <button
+            class="btn btn btn-secondary px-3 d-none"
+            onclick="logout();window.location.href='../index.html';"
+            id="logged_in2">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="mx-auto my-5 p-4 border border-dark bg-light text-center" style="width: 800px">
+      <h4 class="fw-bold">Payment confirmed!</h4>
+      <h4 class="fw-bold">Please save this electronic ticket for later use.</h4>
+      <br />
+      <h4 id="e-date">Date: 30/10/2023</h4>
+      <h4 id="e-time">Time: 04:20 - 06:50</h4>
+      <h4 id="e-station">Tokyo >>> Osaka</h4>
+      <br />
+      <h4 id="e-tcode">Train Code: TO113</h4>
+      <h4 id="e-seat">Seat: 10E, 10F</h4>
+      <br />
+      <div><img width="200" height="200" src="../assets/qrcode.png" /></div>
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+if (req.session.logged === true) {
+  req.session.logged = false;
+}
+if (validate_user(req.body.username, req.body.password)) {
+  console.log(req.body.username);
+  console.log(users);
+  if (users.enabled) {
+    req.session.username = req.body.username;
+    req.session.role = req.body.role;
+    req.session.status = 'success';
+    req.session.timestamp = new Date();
+    const responsedata = {
+      status: 'success',
+      user: {
+        username: req.body.username,
+        role: req.body.role,
+      },
+    };
+    res.json(responsedata);
+  } else {
+    res.status(401).json({
+      status: 'failed',
+      message: 'User `' + req.body.username + '` is currently disabled',
+    });
+  }
+} else {
+  res.status(401).json({
+    status: 'failed',
+    message: 'Incorrect username and password',
+  });
+}

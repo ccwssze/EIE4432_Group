@@ -1,0 +1,22 @@
+[
+  {
+    "user": "admin",
+    "log": "2023-10-20 (13:02) - password changed"
+  },
+  {
+    "user": "admin",
+    "log": "2023-10-12 (13:50) - profile updated"
+  },
+  {
+    "user": "admin",
+    "log": "2023-10-12 (13:49) - Login Attempt(success)"
+  },
+  {
+    "user": "admin",
+    "log": "2023-10-12 (13:48) - Login Attempt(failed)"
+  },
+  {
+    "user": "bob",
+    "log": "2077-10-12 (13:48) - Login Attempt(failed)"
+  }
+]

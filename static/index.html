@@ -1,0 +1,142 @@
+<!--Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Train Ticket Selling System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/login_state.js"></script>
+    <script src="../scripts/index.js"></script>
+  </head>
+  <body>
+    <header class="text-bg-dark text-center p-4 fs-3 fw-bold">Train Ticket Selling System</header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active fw-bold py-2 px-lg-3 text-primary" aria-current="page" href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary d-none" href="../booking.html" id="normal_link1"
+                >Booking</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary d-none" href="../dashboard.html" id="normal_link2"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary d-none" href="../trans_hist.html" id="normal_link3"
+                >Transaction History</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/user_account_mgt.html" id="admin_link1"
+                >User Account Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/seat_mgt.html" id="admin_link2"
+                >Seat Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/event_mgt.html" id="admin_link3"
+                >Event Management</a
+              >
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary px-3 mx-2 d-none"
+            onclick="window.location.href='../account/login.html';"
+            id="logged_out1">
+            Login
+          </button>
+          <button
+            class="btn btn-outline-secondary px-3 d-none"
+            onclick="window.location.href='../account/registration.html';"
+            id="logged_out2">
+            Registration
+          </button>
+          <button class="btn d-none" onclick="window.location.href='../account/account_mgt.html';" id="logged_in1">
+            <img
+              src="../assets/profile-pic.jpg"
+              class="rounded-circle"
+              alt="Profile"
+              width="40"
+              height="40"
+              id="profile-pic" />
+          </button>
+          <button class="btn btn btn-secondary px-3 d-none" onclick="logout_clicked()" id="logged_in2">Logout</button>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid bg-image" style="background-image: url('../assets/index_bg.jpg'); width: 100%; height: 100vh">
+        <div class="row text-center mx-auto" style="width: 900px">
+          <!--style="height: 800px;"-->
+          <form>
+            <br /><br /><br /><br /><br /><br /><br /><br />
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <p
+                class="text-secondary"
+                style="
+                  font-family: 'Courier New', monospace;
+                  font-size: 80px;
+                  line-height: 100px;
+                  letter-spacing: -6px;
+                  font-weight: 900;
+                ">
+                OUR MISSION
+              </p>
+              <p
+                class="text-secondary"
+                style="
+                  font-family: 'Courier New', monospace;
+                  font-size: 70px;
+                  line-height: 100px;
+                  letter-spacing: -6px;
+                  font-weight: 900;
+                ">
+                Keep Countries Moving
+              </p>
+            </div>
+            <button
+              type="button"
+              id="cover_button"
+              class="btn btn-dark btn-block mb-4 w-100 fs-1 fw-bold"
+              style="border-width: 5px; opacity: 0.8"
+              onclick="window.location.href='/booking.html';">
+              Start Booking Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="text-bg-dark text-center p-3 fs-6 fixed-bottom">&copy;Thomas Brother's Metro Limited</footer>
+  </body>
+</html>

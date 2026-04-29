@@ -1,0 +1,163 @@
+<!--Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Train Ticket Selling System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/login_state.js"></script>
+    <script src="../scripts/payment.js"></script>
+  </head>
+  <body>
+    <header class="text-bg-dark text-center p-4 fs-3 fw-bold">Train Ticket Selling System</header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-secondary" href="../trans_hist.html">Transaction History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/user_account_mgt.html" id="admin_link1"
+                >User Account Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/seat_mgt.html" id="admin_link2"
+                >Seat Management</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2 px-lg-3 text-danger d-none" href="../admin/event_mgt.html" id="admin_link3"
+                >Event Management</a
+              >
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary px-3 mx-2 d-none"
+            onclick="window.location.href='../account/login.html';"
+            id="logged_out1">
+            Login
+          </button>
+          <button
+            class="btn btn-outline-secondary px-3 d-none"
+            onclick="window.location.href='../account/registration.html';"
+            id="logged_out2">
+            Registration
+          </button>
+          <button class="btn d-none" onclick="window.location.href='../account/account_mgt.html';" id="logged_in1">
+            <img
+              src="../assets/profile-pic.jpg"
+              class="rounded-circle"
+              alt="Profile"
+              width="40"
+              height="40"
+              id="profile-pic" />
+          </button>
+          <button
+            class="btn btn btn-secondary px-3 d-none"
+            onclick="logout();window.location.href='../index.html';"
+            id="logged_in2">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="event-detail" class="container py-4 text-center">
+      <h5 class="mb-4" id="">
+        <span id="tcode_display">&emsp;Train Code: loading</span>
+        <span id="date_display">&emsp; Date: loading</span>
+        <span id="time_display">&emsp;Time: loading</span>
+      </h5>
+
+      <h5>
+        <span id="station_display">&emsp;loading -> loading </span><span id="seats_display">&emsp;Seat: loading</span>
+      </h5>
+      <br />
+      <h4 class="fw-bold">Total Price: <span id="price_display">$40</span></h4>
+    </div>
+
+    <div id="payment-detail" class="container py-4">
+      <form method="POST" id="form">
+        <h5 class="fw-bold mb-4 btn btn-dark">Payment Method</h5>
+        <br />
+
+        <label for="payment-method" class="mb-1">Payment Method:</label>
+        <select id="payment-method" name="payment-method" class="form-select mb-4">
+          <option value="" selected>Please Select</option>
+          <option value="visa">Visa</option>
+          <option value="mastercard">Mastercard</option>
+          <option value="aexpress">American Express</option>
+        </select>
+
+        <label for="card-number" class="mb-1">Credit Card Number:</label>
+        <input id="card-number" name="card-number" class="form-control mb-4" />
+
+        <label for="expired-date" class="mb-1">Expired Date:</label>
+        <input type="month" id="expired-date" class="form-control mb-4" />
+
+        <label for="cvv" class="mb-1">CVV:</label>
+        <input id="cvv" name="cvv" class="form-control mb-4" />
+
+        <h5 class="fw-bold mb-4 btn btn-dark">Bill Info</h5>
+        <br />
+
+        <label for="first-name" class="mb-1">First Name:</label>
+        <input id="first-name" name="first-name" class="form-control mb-4" />
+
+        <label for="last-name" class="mb-1">Last Name:</label>
+        <input id="last-name" name="last-name" class="form-control mb-4" />
+
+        <label for="address" class="mb-1">Billing Address:</label>
+        <input id="address" name="address" class="form-control mb-4" />
+
+        <label for="city" class="mb-1">City:</label>
+        <input id="city" name="city" class="form-control mb-4" />
+
+        <label for="postal" class="mb-1">Postal Code:</label>
+        <input id="postal" name="postal" class="form-control mb-4" />
+
+        <label for="country-city" class="mb-1">Country/City:</label>
+        <input id="country-city" name="country-city" class="form-control mb-4" />
+
+        <label for="phone" class="mb-1">Phone Number:</label>
+        <input id="phone" name="phone" class="form-control mb-4" />
+
+        <div class="row mb-3 message" style="display: none"></div>
+
+        <button type="button" class="btn btn-success btn-lg fw-bold" onclick="placeOrder(event)">Confirm</button>
+      </form>
+    </div>
+  </body>
+</html>

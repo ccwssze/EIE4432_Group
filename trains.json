@@ -1,0 +1,74 @@
+[
+  {
+    "traincode": "TO113",
+    "date": "2023-10-30",
+    "dtime": "04:20",
+    "atime": "06:50",
+    "dstation": "Tokyo",
+    "astation": "Osaka",
+    "seat": {
+      "carts": 5,
+      "rowPcart": 20,
+      "seatProw": 6,
+      "taken": [
+        ["1B", "JackySit"],
+        ["3A", "Wong Sze Sze"]
+      ]
+    },
+    "enabled": true
+  },
+  {
+    "traincode": "TO114",
+    "date": "2023-10-30",
+    "dtime": "08:30",
+    "atime": "11:00",
+    "dstation": "HK",
+    "astation": "Osaka",
+    "seat": {
+      "carts": 10,
+      "rowPcart": 10,
+      "seatProw": 4,
+      "taken": [
+        ["2B", "JackySit"],
+        ["4A", "Wong Sze Sze"]
+      ]
+    },
+    "enabled": true
+  },
+  {
+    "traincode": "TO115",
+    "date": "2023-10-30",
+    "dtime": "13:00",
+    "atime": "15:30",
+    "dstation": "Tokyo",
+    "astation": "Osaka",
+    "seat": {
+      "carts": 8,
+      "rowPcart": 15,
+      "seatProw": 8,
+      "taken": [
+        ["3B", "JackySit"],
+        ["5A", "Wong Sze Sze"]
+      ]
+    },
+    "enabled": true
+  },
+  {
+    "traincode": "TO116",
+    "date": "2023-10-30",
+    "dtime": "18:50",
+    "atime": "21:20",
+    "dstation": "Tokyo",
+    "astation": "Osaka",
+    "seat": {
+      "carts": 6,
+      "rowPcart": 12,
+      "seatProw": 2,
+      "taken": [
+        ["7B", "JackySit"],
+        ["9A", "Wong Sze Sze"]
+      ]
+    },
+    "enabled": true
+  }
+]

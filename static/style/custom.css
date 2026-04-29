@@ -1,0 +1,32 @@
+/*Sit Hin Kit 21078808d
+Wong Sze Sze 21081046d*/
+
+.seat {
+  fill: gray;
+  stroke: black;
+  stroke-width: 2;
+  cursor: pointer;
+}
+.booked {
+  fill: red;
+  stroke: black;
+  stroke-width: 2;
+  cursor: not-allowed;
+}
+.door {
+  fill: #ffff00;
+  stroke: black;
+  stroke-width: 2;
+}
+.selected {
+  fill: green;
+  stroke: black;
+  stroke-width: 2;
+  cursor: pointer;
+}
+.booked_admin {
+  fill: red;
+  stroke: black;
+  stroke-width: 2;
+  cursor: pointer;
+}

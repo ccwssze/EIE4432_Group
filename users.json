@@ -1,0 +1,22 @@
+[
+  {
+    "username": "bob",
+    "password": "bob1234",
+    "nickname": "bobby",
+    "email": "bobby0020@gmail.com",
+    "gender": "M",
+    "birthdate": "2003-05-25",
+    "role": "user",
+    "enabled": true
+  },
+  {
+    "username": "admin",
+    "password": "adminpass",
+    "nickname": "Admin001",
+    "email": "admin@gmail.com",
+    "gender": "O",
+    "birthdate": "2001-01-01",
+    "role": "admin",
+    "enabled": true
+  }
+]
